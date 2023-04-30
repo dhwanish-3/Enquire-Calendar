@@ -362,104 +362,133 @@ a {
   width: 20px;
 }
 
-.range{
-  height: 80px;
-  width: 380px;
-  background: #fff;
-  border-radius: 10px;
-  padding: 0 65px 0 45px;
-  box-shadow: 2px 4px 8px rgba(0,0,0,0.1);
-}
-.sliderValue{
-  position: relative;
-  width: 100%;
-}
-.sliderValue span{
-  position: absolute;
-  height: 45px;
-  width: 45px;
-  transform: translateX(-70%) scale(0);
-  font-weight: 500;
-  top: -40px;
-  line-height: 55px;
-  z-index: 2;
-  color: #fff;
-  transform-origin: bottom;
-  transition: transform 0.3s ease-in-out;
-}
-.sliderValue span.show{
-  transform: translateX(-70%) scale(1);
-}
-.sliderValue span:after{
-  position: absolute;
-  content: '';
-  height: 100%;
-  width: 100%;
-  background: #664AFF;
-  border: 3px solid #fff;
-  z-index: -1;
-  left: 50%;
-  transform: translateX(-50%) rotate(45deg);
-  border-bottom-left-radius: 50%;
-  box-shadow: 0px 0px 8px rgba(0,0,0,0.1);
-  border-top-left-radius: 50%;
-  border-top-right-radius: 50%;
-}
-.field{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  position: relative;
-}
-.field .value{
-  position: absolute;
-  font-size: 18px;
-  color: #664AFF;
-  font-weight: 600;
-}
-.field .value.left{
-  left: -22px;
-}
-.field .value.right{
-  right: -43px;
-}
-input[type=range].range {
-  /* -webkit-appearance: none; */
-  width: 100%;
-  height: 3px;
-  background: #ddd;
-  border-radius: 5px;
-  outline: none;
-  border: none;
-  z-index: 2222;
+:root {
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --gradient-color: linear-gradient(95deg,
+                  hsl(288, 33%, 97%) -7%,
+                  hsl(258, 27%, 90%) 112%);
+  --first-color-light: hsl(256, 64%, 88%);
+  --first-color-lighten: hsl(256, 58%, 94%);
+  --white-color: hsl(0, 0%, 100%);
+  --body-color: hsl(256, 100%, 98%);
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Montserrat", sans-serif;
+  --h1-font-size: 1.5rem;
 }
 
-input[type=range].range::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 20px;
-  height: 20px;
-  background: red;
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* body { */
+  /* font-family: var(--body-font); */
+  /* background-color: var(--body-color); */
+/* } */
+
+/*=============== RANGE SLIDER ===============*/
+/* .container { */
+  /* height: 10vh; */
+  /* margin-inline: 1.5rem; */
+  /* display: grid; */
+  /* place-items: center; */
+/* } */
+
+/* Custom input range */
+.range {
+  height: 7px;
+  width: 100%;
+  max-width: 382px;
+  background-color: var(--first-color-light);
+  border-radius: 4rem;
+  box-shadow: 0 6px 16px hsla(256, 79%, 9%, 0.15);
+  padding-inline: 0.0rem;
+  display: grid;
+}
+
+
+.range__content {
+  position: relative;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.range__slider {
+  width: 100%;
+  height: 6px;
+  background-color: var(--first-color-lighten);
+  border-radius: 4rem;
+  box-shadow: 0 4px 12px hsla(256, 72%, 24%, .2);
+  overflow: hidden;
+}
+
+.range__slider-line {
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-color);
+  width: 0;
+}
+
+.range__thumb {
+  width: 22px;
+  height: 22px;
+  background-color: var(--first-color-lighten);
   border-radius: 50%;
-  background: #664AFF;
-  border: 1px solid #664AFF;
+  box-shadow: 0 0 12px hsla(256, 72%, 24%, .2);
+  position: absolute;
+}
+
+/* Value input range */
+.range__value {
+  width: 30px;
+  height: 30px;
+  background: var(--gradient-color);
+  position: absolute;
+  top: -42px;
+  left: -7px;
+  border-radius: 2rem 2rem 2rem .25rem;
+  transform: rotate(-45deg);
+  display: grid;
+  place-items: center;
+}
+
+.range__value-number {
+  transform: rotate(45deg);
+  color: #000000;
+  font-size: 60;
+}
+
+/* Default input range */
+.range__input {
+  appearance: none;
+  width: 100%;
+  height: 16px;
+  position: absolute;
+  opacity: 0;
+}
+
+.containerDhwa{
+  margin-left: 0%;
+}
+
+
+.range__input::-webkit-slider-thumb {
+  appearance: none;
+  width: 22px;
+  height: 22px;
+}
+
+.range__input::-webkit-slider-thumb:hover {
   cursor: pointer;
 }
 
-input[type=range].range::-moz-range-thumb {
-  /* -webkit-appearance: none; */
-  width: 20px;
-  height: 20px;
-  background: red;
-  border-radius: 50%;
-  background: #664AFF;
-  border: 1px solid #664AFF;
-  cursor: pointer;
-}
 
-input[type=range].range::-moz-range-progress {
-  background: #664AFF;
-}
 /* Import Google font - Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 .wrapper{
