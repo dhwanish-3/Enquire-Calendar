@@ -12,13 +12,7 @@
 a {
   text-decoration: none;
 }
-/* .header {
-  position: fixed;
-  height: 80px;
-  width: 100%;
-  z-index: 100;
-  padding: 0 20px;
-} */
+
 .nav {
   max-width: 1100px;
   width: 100%;
@@ -57,31 +51,6 @@ a {
   transform: scale(0.98);
 }
 
-/* Home */
-/* .home {
-  position: relative;
-  height: 15vh;
-  width: 100%;
-  background: linear-gradient(to bottom, #443a4f, #240c44);
-} */
-
-
-/* .home::before {
-  content: "";
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  z-index: 100;
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.5s ease-out;
-}
-.home.show::before {
-  opacity: 1;
-  pointer-events: auto;
-} */
-/* From */
 .navbar-custom {
   background-color:  #240c44
 }
@@ -207,16 +176,6 @@ a {
   text-align: center;
   margin-top: 15px;
 }
-/* .container{
-  width: 100%;
-  max-width: 650px;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 28px;
-  margin: 0 28px;
-  border-radius: 10px;
-  box-shadow: inset -2px 2px 2px white;
-} */
-
 .form-title{
   font-size: 26px;
   font-weight: 600;
@@ -366,8 +325,7 @@ a {
 }
 
 :root {
-  /*========== Colors ==========*/
-  /*Color mode HSL(hue, saturation, lightness)*/
+
   --gradient-color: linear-gradient(95deg,
                   hsl(288, 33%, 97%) -7%,
                   hsl(258, 27%, 90%) 112%);
@@ -375,9 +333,6 @@ a {
   --first-color-lighten: hsl(256, 58%, 94%);
   --white-color: hsl(0, 0%, 100%);
   --body-color: hsl(256, 100%, 98%);
-
-  /*========== Font and typography ==========*/
-  /*.5rem = 8px | 1rem = 16px ...*/
   --body-font: "Montserrat", sans-serif;
   --h1-font-size: 1.5rem;
 }
@@ -430,7 +385,7 @@ a {
   box-shadow: 0 0 12px hsla(256, 72%, 24%, .2);
   position: absolute;
 }
-/* Value input range */
+
 .range__value {
   width: 30px;
   height: 30px;
@@ -472,7 +427,7 @@ a {
 .range__input::-webkit-slider-thumb:hover {
   cursor: pointer;
 }
-/* Import Google font - Poppins */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 .wrapper{
   width: 450px;
@@ -587,10 +542,6 @@ header .current-date{
 .pop-up img{
   width:300PX;
 }
-/* .pop-up p {
-  font-size: 16px;
-  margin-bottom: 5px;
-}  */
 
 .pop-up .close-btn {
   background-color: #f44336;
@@ -607,7 +558,7 @@ header .current-date{
 }
 
 .bod{
-  
+
   display: flex;
   align-items: center;
   padding: 0 10px;
@@ -615,9 +566,4 @@ header .current-date{
   min-height: 100vh;
   background: #7f24f7;
 }
-.scrolled-down{
-  transform:translateY(-100%); transition: all 0.3s ease-in-out;
-}
-.scrolled-up{
-  transform:translateY(0); transition: all 0.3s ease-in-out;
-}
+
