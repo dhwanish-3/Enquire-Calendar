@@ -544,18 +544,20 @@ header .current-date{
 }
 
 .pop-up .close-btn {
-  background-color: #f44336;
+  font-size: 45px;
+  font-weight: 600;
   border: none;
-  color: white;
+  color: #000000;
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
+  margin-left:300px;
   margin-top: 10px;
 }
 
-.pop-up .close-btn:hover {
+/* .pop-up .close-btn:hover {
   background-color: #d32f2f;
-}
+} */
 
 .bod{
 

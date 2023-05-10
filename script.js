@@ -91,11 +91,11 @@ function showPopUp(day) {
      const popUp = document.createElement("div");
     popUp.classList.add("pop-up");
     popUp.innerHTML = `<div>
+                        <span class="close-btn">&times;</span>
                         <h2>${months[currMonth]} ${day}, ${currYear}</h2>
                        <p>Today is a special day!</p>
                       <img src="im.jpeg">
                        <p>Happy birthday!</p>
-                       <button class="close-btn">Close</button>
                           <div/>`;
     // Close the pop-up window when the close button is clicked
     popUp.querySelector(".close-btn").addEventListener("click", () => {
@@ -133,13 +133,20 @@ const renderCalendar = () => {
 }); 
 }
 renderCalendar();
-
+let v1=currMonth;
+let v2=currMonth+1;
 prevNextIcon.forEach(icon => { 
-                              // getting prev and next icons
     icon.addEventListener("click", () => { // adding click event on both icons
         // if clicked icon is previous icon then decrement current month by 1 else increment it by 1
-        currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
-
+        if(icon.id === "prev"){
+          if(currMonth===v2){
+            currMonth=currMonth - 1; 
+          }
+        }else{
+          if(currMonth==v1){
+            currMonth=currMonth + 1;
+          }
+        }
         if(currMonth < 0 || currMonth > 11) { // if current month is less than 0 or greater than 11
             // creating a new date of current year & month and pass it as date value
             date = new Date(currYear, currMonth, new Date().getDate());
