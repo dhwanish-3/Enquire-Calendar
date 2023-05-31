@@ -176,6 +176,16 @@ a {
   text-align: center;
   margin-top: 15px;
 }
+
+.container1{
+  width: 100%;
+  max-width: 650px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 28px;
+  margin: 0 28px;
+  border-radius: 10px;
+  box-shadow: inset -2px 2px 2px white;
+}
 .form-title{
   font-size: 26px;
   font-weight: 600;
