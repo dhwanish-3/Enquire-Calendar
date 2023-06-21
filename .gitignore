@@ -1,9 +1,10 @@
 
+.gitignore
 
 google-api
 
 posters
 
-backup
+confidential.php
 
-
+.vscode
