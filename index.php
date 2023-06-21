@@ -1,9 +1,10 @@
 <?php
 require 'backup/google.php';
 // Check if the user is logged in
+$_SESSION['name']='Dhwanish';
 if (isset($_SESSION['name'])) {
   // Display the welcome message
-  echo "Hello, " . $_SESSION['name'] . "!";
+  echo "<div class='hello'>Hello, {$_SESSION['name']} !</div>";
 }
 ?>
 
@@ -29,13 +30,13 @@ if (isset($_SESSION['name'])) {
         <?php
           // Check if the user is logged in
           if (isset($_SESSION['email'])) { ?>
-           <button class="button" id="form-open" onclick="window.location.href = 'logout.php'">Logout</button>
-         <?php
-        }else{ ?>
-          <button class="button" id="form-open">Login</button>
+            <button class="button" id="form-open" onclick="window.location.href = 'logout.php'">Logout</button>
           <?php
-        }
-         ?>
+          }else{ ?>
+            <button class="button" id="form-open">Login</button>
+          <?php
+          }
+        ?>
       </nav>
     </header>
     <!-- Home -->
@@ -204,12 +205,11 @@ if (isset($_SESSION['name'])) {
       </div> 
     </div>
    </div>
-        <div class="form application">
+        <!-- <div class="form application">
           <form action="event_apply.php" method="POST">
             <h2>Apply for Event</h2>
             <label for="image">Image : </label>
-            <!-- <img id="previewImage" src="#" alt="Preview Image" style="display:none;"> -->
-            <!-- <input type="file" name="image" id = "image" accept=".jpg, .jpeg, .png" value=""> -->
+            <img id="previewImage" src="#" alt="Preview Image" style="display:none;">
             <input type="file" name="image" id = "image" accept=".jpg, .jpeg, .png" value=""> <br> <br>
             <div class="input_box">
               <i class="uil uil-user-circle name"></i>
@@ -267,7 +267,7 @@ if (isset($_SESSION['name'])) {
         </div>
             <button class="classs">Apply</button>
           </form>     
-        </div>
+        </div> -->
     <div class="container">
       <h1 class="form-title">Registration</h1>
       <form action="#">
@@ -275,15 +275,16 @@ if (isset($_SESSION['name'])) {
           <div class="user-input-box">
             <label for="general">General</label>
             <div class="range">
+              
             <div class="sliderValue">
-              <span>100</span>
+              <span>5</span>
             </div>
             <div class="field">
               <div class="value left">
               0</div>
-              <input type="range" id="general" name="general"min="0" max="200" value="0" steps="1">
+              <input type="range" id="general" name="general" min="0" max="10" value="5" steps="1">
               <div class="value right">
-                200</div>
+                10</div>
               </div>
            </div>
             </label>
@@ -293,14 +294,14 @@ if (isset($_SESSION['name'])) {
                  
             <div class="range">
               <div class="sliderValue">
-                <span>100</span>
+                <span>5</span>
               </div>
               <div class="field">
                 <div class="value left">
                 0</div>
-                <input type="range" id="scitech" name="scitech"min="0" max="200" value="100" steps="1">
+                <input type="range" id="scitech" name="scitech"min="0" max="10" value="5" steps="1">
                 <div class="value right">
-                  200</div>
+                  10</div>
                 </div>
              </div>
   
@@ -311,14 +312,14 @@ if (isset($_SESSION['name'])) {
                  
             <div class="range">
               <div class="sliderValue">
-                <span>100</span>
+                <span>5</span>
               </div>
               <div class="field">
                 <div class="value left">
                 0</div>
-                <input type="range" id="sports" name="sports"min="0" max="200" value="100" steps="1">
+                <input type="range" id="sports" name="sports"min="0" max="10" value="5" steps="1">
                 <div class="value right">
-                  200</div>
+                  10</div>
                 </div>
              </div>
   
@@ -329,14 +330,14 @@ if (isset($_SESSION['name'])) {
                  
             <div class="range">
               <div class="sliderValue">
-                <span>100</span>
+                <span>5</span>
               </div>
               <div class="field">
                 <div class="value left">
                 0</div>
-                <input type="range" id="business" name="business"min="0" max="200" value="100" steps="1">
+                <input type="range" id="business" name="business"min="0" max="10" value="5" steps="1">
                 <div class="value right">
-                  200</div>
+                  10</div>
                 </div>
              </div>
   
@@ -346,14 +347,14 @@ if (isset($_SESSION['name'])) {
             <label for="mela">Mela</label>      
           <div class="range">
             <div class="sliderValue">
-              <span>100</span>
+              <span>5</span>
             </div>
             <div class="field">
               <div class="value left">
               0</div>
-              <input type="range" id="mela" name="mela" min="0" max="200" value="100" steps="1">
+              <input type="range" id="mela" name="mela" min="0" max="10" value="5" steps="1">
               <div class="value right">
-                200</div>
+                10</div>
               </div>
            </div>
 
