@@ -372,12 +372,12 @@ function renderFrontEnd(listofEvents){
     let eventTypes=date.event_types;
     console.log(date.event_types);
     if(eventTypes.includes("open") && eventTypes.includes("school") && eventTypes.includes("college")){
-      return "active4";
-    }else if(eventTypes.includes("open") && eventTypes.includes("school")){
+      return "active";
+    }else if((eventTypes.includes("open") && eventTypes.includes("school")) || (eventTypes.includes("open-school"))){
       return "active5";
-    }else if(eventTypes.includes("open") && eventTypes.includes("college")){
+    }else if(eventTypes.includes("open") && eventTypes.includes("college") || (eventTypes.includes("open-college"))){
       return "active6";
-    }else if(eventTypes.includes("school") && eventTypes.includes("college")){
+    }else if(eventTypes.includes("school") && eventTypes.includes("college") || (eventTypes.includes("school-college"))){
       return "active7";
     }else if(eventTypes.includes("open")){
       return "active";
@@ -385,6 +385,8 @@ function renderFrontEnd(listofEvents){
       return "active2";
     }else if(eventTypes.includes("college")){
       return "active3";
+    }else{
+      return "active";
     }
   }
 

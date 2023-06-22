@@ -20,11 +20,8 @@
   else if($school && $college) $category = "school-college";
   else if($school) $category = "school";
   else if($college) $category = "college";
-  // echo "<script> alert('$category'); </script>";
+
   if($_FILES["image"]["error"] == 4){
-    echo
-    "<script> alert('Image Does Not Exist'); </script>"
-    ;
     header('Location: ../index.php?image_does_not_exist');
   }
   else{
@@ -34,20 +31,10 @@
     $validImageExtension = ['jpg', 'jpeg', 'png'];
     $imageExtension = explode('.', $fileName);
     $imageExtension = strtolower(end($imageExtension));
-    if ( !in_array($imageExtension, $validImageExtension) ){
-      echo $imageExtension;
-      echo "<script>
-        alert('Invalid Image Extension');
-      </script>";
+    if (!in_array($imageExtension, $validImageExtension) ){
       header('Location: ../index.php?invalid_image');
     }
     if($fileSize > 5000000){
-      echo
-      "
-      <script>
-        alert('Image Size Is Too Large');
-      </script>
-      ";
       header('Location: ../index.php?image_too_large');
     }
     else{
@@ -57,14 +44,10 @@
       $newPath='../'.$filePath;
       move_uploaded_file($tmpName, $newPath);
       $query = "INSERT INTO request_event(date,name,venue,imageUrl,category,type,quiz_masters,contact,link,rules,applicants_phone,apply_ad) VALUES('$date', '$name', '$venue','$filePath','$category','$type','$quiz_masters','$contact','$link','$rules','$number','$apply_ad')";
-      mysqli_query($conn, $query);
-      echo
-      "
-      <script>
-        alert('Successfully Applied');
-      </script>
-      ";
-      header('Location: ../index.php?successfully_applied');
+      $result=mysqli_query($conn, $query);
+      if($result)
+        header('Location: ../index.php?successfully_applied');
+      else header('Location: ../index.php?something_went_wrong');
     }
   }
 ?>
