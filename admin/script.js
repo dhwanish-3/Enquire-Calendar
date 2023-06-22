@@ -13,6 +13,7 @@ const getRequests=(callback)=>{
         if (xhr.status === 200) {
         // Parse the response as JSON
         var data = JSON.parse(xhr.responseText);
+        console.log(data);
         callback(data);
         } else {
         // Handle errors here
@@ -39,6 +40,7 @@ const showRequests=(listofRequests)=>{
     let i=0;
     while(i<listofRequests.length){
         tableContentHtml=tableContentHtml.concat(``);
+        i++;
     }
 }
 

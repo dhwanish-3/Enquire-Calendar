@@ -1,7 +1,7 @@
 <?php
 require_once "../backup/config.php";
 $listofRequests=array();
-$query="SELECT * FROM request_events";
+$query="SELECT * FROM request_event";
 $result=$conn->query($query);
 if($result->num_rows>0){
     $row=mysqli_fetch_assoc($result);
