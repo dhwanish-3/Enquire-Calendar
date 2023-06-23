@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,9 +31,6 @@
             <?php
             }
             ?>
-            <div>
-                <button class="button apply-button">APPLY</button>
-            </div>
         </div>
     </section>
 
@@ -59,7 +59,7 @@
                         <i class="uil uil-lock password"></i>
                         <i class="uil uil-eye-slash pw_hide"></i>
                     </div>
-                    <button class="button">LOGIN NOW</button>
+                    <button name="submit" class="button">LOGIN NOW</button>
                 </form>
             </div>
         </div>

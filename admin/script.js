@@ -1,4 +1,77 @@
 
+// sign-up and login form
+const home=document.querySelector(".home");
+const formOpenBtn = document.querySelector("#form-open");
+const formCloseBtn = document.querySelector(".form_close");
+const pwShowHide = document.querySelectorAll(".pw_hide");
+const nonhomeElements = document.querySelectorAll("body > *:not(.home)");
+
+const outsideClickHandlerforAuth = (event) => {
+  if (!home.contains(event.target) && event.target !== home) {
+    nonhomeElements.forEach((element) => {
+      element.classList.remove("blur-effect");
+      home.classList.remove("show");
+    });
+    document.removeEventListener("click", outsideClickHandlerforAuth);
+  }
+};
+
+if(formOpenBtn!==null){
+  formOpenBtn.addEventListener("click", () => {
+    nonhomeElements.forEach((element) => {
+      element.classList.add("blur-effect");
+    });
+
+    setTimeout(() => {
+      document.addEventListener("click", outsideClickHandlerforAuth);
+    }, 100);
+    home.classList.add("show");
+  });
+}
+
+formCloseBtn.addEventListener("click", () => {
+  home.classList.remove("show");
+  document.removeEventListener("click", outsideClickHandlerforAuth);
+  nonhomeElements.forEach((element) => {
+    element.classList.remove("blur-effect");
+  });
+});
+
+// password show and hide
+pwShowHide.forEach((icon) => {
+    icon.addEventListener("click", () => {
+        let getPwInput = icon.parentElement.querySelector("input");
+        if (getPwInput.type === "password") {
+            getPwInput.type = "text";
+            icon.classList.replace("uil-eye-slash", "uil-eye");
+        } else {
+            getPwInput.type = "password";
+            icon.classList.replace("uil-eye", "uil-eye-slash");
+        }
+    });
+});
+
+
+// we always want to show the login form if the user has not logged in
+// then only we fetch the data
+// for showing msg in signup - login container
+const urlParams = new URLSearchParams(window.location.search);
+const login = urlParams.get('login');
+if(login==null && formOpenBtn!=null){
+    formOpenBtn.click();
+}
+else if(login!=null && formOpenBtn!=null){
+  if(login=='success'){
+
+    // calling the function to get listofRequests
+    getRequests(showRequests);
+
+  }else{
+    formOpenBtn.click();
+  }
+}
+
+
 // defining a global list of requests in case needed
 let globalListofRequests=new Array();
 
@@ -43,6 +116,3 @@ const showRequests=(listofRequests)=>{
         i++;
     }
 }
-
-// calling the function to get listofRequests
-getRequests(showRequests);
