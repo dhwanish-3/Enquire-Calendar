@@ -52,26 +52,6 @@ pwShowHide.forEach((icon) => {
 });
 
 
-// we always want to show the login form if the user has not logged in
-// then only we fetch the data
-// for showing msg in signup - login container
-const urlParams = new URLSearchParams(window.location.search);
-const login = urlParams.get('login');
-if(login==null && formOpenBtn!=null){
-    formOpenBtn.click();
-}
-else if(login!=null && formOpenBtn!=null){
-  if(login=='success'){
-
-    // calling the function to get listofRequests
-    getRequests(showRequests);
-
-  }else{
-    formOpenBtn.click();
-  }
-}
-
-
 // defining a global list of requests in case needed
 let globalListofRequests=new Array();
 
@@ -84,13 +64,15 @@ const getRequests=(callback)=>{
     xhr.onload = function() {
         // Check if the request was successful
         if (xhr.status === 200) {
-        // Parse the response as JSON
-        var data = JSON.parse(xhr.responseText);
-        console.log(data);
-        callback(data);
+            // Parse the response as JSON
+            var data = JSON.parse(xhr.responseText);
+            console.log(data);
+            globalListofRequests=data; // assigning to global variable
+
+            callback(data);
         } else {
-        // Handle errors here
-        console.error(xhr.statusText);
+            // Handle errors here
+            console.error(xhr.statusText);
         }
     };
     // Send the request
@@ -99,8 +81,6 @@ const getRequests=(callback)=>{
 
 // function to render the list of requested events
 const showRequests=(listofRequests)=>{
-
-    globalListofRequests=listofRequests; // assigning to global variable
 
     if(listofRequests.length==0) return;
 
@@ -116,3 +96,28 @@ const showRequests=(listofRequests)=>{
         i++;
     }
 }
+
+// we always want to show the login form if the user has not logged in
+// then only we fetch the data
+// for showing msg in signup - login container
+const urlParams = new URLSearchParams(window.location.search);
+const login = urlParams.get('login');
+console.log(login);
+console.log(formOpenBtn);
+if(login==null){
+    if(formOpenBtn==null){
+        getRequests(showRequests);
+    }else{
+        formOpenBtn.click();
+    }
+}
+else if(login!=null){
+    if(formOpenBtn==null){
+        // calling the function to get listofRequests
+        getRequests(showRequests);
+
+    }else if(formOpenBtn!=null){
+        formOpenBtn.click();
+    }
+}
+
