@@ -1,4 +1,3 @@
-
 const formOpenBtn = document.querySelector("#form-open"),
   home = document.querySelector(".home"),
   formContainer = document.querySelector(".form_container"),
@@ -188,8 +187,9 @@ function SortedPopupString(eventDetails){
       <p>Rules : ${eventDetails[i].rules}</p>`);
     if(eventDetails[i].link!=null) loop=loop.concat(`
       <p>Link : <a href="${eventDetails[i].link}">${eventDetails[i].link}</a></p>`);
+    if(eventDetails[i].masters!=null && eventDetails[i].masters.length!=0) loop=loop.concat(`
+      <p>Quiz Masters : ${eventDetails[i].masters}</p>`);
     loop=loop.concat(`
-      <p>Quiz Masters : ${eventDetails[i].masters}</p>
       <p>Contact : ${eventDetails[i].contact}</p>
       <hr>
     </div>`);
@@ -409,8 +409,9 @@ function renderFrontEnd(listofEvents){
         <p>Rules : ${eventDetails[i].rules}</p>`);
       if(eventDetails[i].link!=null) loop=loop.concat(`
         <p>Link : <a href="${eventDetails[i].link}">${eventDetails[i].link}</a></p>`);
+      if(eventDetails[i].masters!=null && eventDetails[i].masters.length!=0) loop=loop.concat(`
+        <p>Quiz Masters : ${eventDetails[i].masters}</p>`);
       loop=loop.concat(`
-        <p>Quiz Masters : ${eventDetails[i].masters}</p>
         <p>Contact : ${eventDetails[i].contact}</p>
         <hr>
       </div>`);

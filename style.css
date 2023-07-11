@@ -574,6 +574,7 @@ header .current-date{
   font-size: 1.1rem;
   text-align: start;
   text-transform:capitalize;
+  width: 32rem;
 }
 #popContainer .event-details span{
   line-height: 25px;
